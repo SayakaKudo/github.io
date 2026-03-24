@@ -24,16 +24,20 @@ const questions = [
   "紗華と結婚する？"
 ];
 
+// No押したときのメッセージ
+const noMessages = [
+  "嘘はダメだよ？",
+  "誓うよね？",
+  "殺すよ？"
+];
+
 let answers = [];
 let current = 0;
 let noBtn;
-let noTimeout = null;
 
 // 初期化
 window.addEventListener("DOMContentLoaded", () => {
   noBtn = document.getElementById("noBtn");
-
-  resetNoPosition();
 
   noBtn.addEventListener("click", handleNoClick);
 
@@ -72,20 +76,6 @@ function login() {
 // 質問表示
 function showQuestion() {
   document.getElementById("qText").innerText = questions[current];
-
-  resetNoPosition();
-
-  // Yesサイズリセット
-  const yesBtn = document.querySelector(".yes");
-  if (yesBtn) {
-    yesBtn.style.transform = "scale(1)";
-  }
-
-  // No状態リセット
-  if (noBtn) {
-    noBtn.style.opacity = "1";
-    noBtn.style.pointerEvents = "auto";
-  }
 }
 
 // 回答
@@ -102,52 +92,9 @@ function answer(a) {
   }
 }
 
-// Noクリック処理
+// Noクリック（全質問共通：確認ダイアログ）
 function handleNoClick() {
-
-  // Q1：消えて再出現（安定版）
-  if (current === 0) {
-
-    if (noTimeout) clearTimeout(noTimeout);
-
-    noBtn.style.opacity = "0";
-    noBtn.style.pointerEvents = "none";
-
-    noTimeout = setTimeout(() => {
-      const x = Math.random() * (window.innerWidth - 120);
-      const y = Math.random() * (window.innerHeight - 50);
-
-      noBtn.style.position = "fixed";
-      noBtn.style.left = x + "px";
-      noBtn.style.top = y + "px";
-
-      noBtn.style.opacity = "1";
-      noBtn.style.pointerEvents = "auto";
-    }, 1500);
-  }
-
-  // Q2：無限確認
-  else if (current === 1) {
-    alert("本当に？");
-  }
-
-  // Q3：Yes巨大化（蓄積型）
-  else if (current === 2) {
-    const yesBtn = document.querySelector(".yes");
-
-    const currentScale = yesBtn.style.transform.match(/scale\\(([^)]+)\\)/);
-    const base = currentScale ? parseFloat(currentScale[1]) : 1;
-
-    const next = base * 1.2;
-
-    yesBtn.style.transform = `scale(${next})`;
-  }
-}
-
-// 位置リセット
-function resetNoPosition() {
-  if (!noBtn) return;
-  noBtn.style.position = "static";
+  alert(noMessages[current]);
 }
 
 // メール送信
