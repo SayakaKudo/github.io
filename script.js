@@ -86,9 +86,15 @@ function answer(a) {
   current++;
 
   if (current >= questions.length) {
-    sendEmail();
-    document.getElementById("question").classList.add("hidden");
-    document.getElementById("done").classList.remove("hidden");
+
+    sendEmail().then(() => {
+      // 送信完了後に遷移
+      document.getElementById("question").classList.add("hidden");
+      document.getElementById("done").classList.remove("hidden");
+    }).catch(() => {
+      alert("送信に失敗しました");
+    });
+
   } else {
     showQuestion();
   }
