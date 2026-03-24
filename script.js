@@ -8,7 +8,7 @@ const correct = {
   by: "1996",
   bm: "4",
   bd: "13",
-  bfamily: "葛󠄀谷",
+  bfamily: ["葛󠄀谷","葛谷"],
   bname: "雄斗",
   gy: "1994",
   gm: "8",
@@ -34,7 +34,7 @@ function login() {
   for (let f of fields) {
     const input = document.getElementById(f).value.trim();
     if (input !== correct[f]) {
-      document.getElementById("error").innerText = "入力が違います";
+      document.getElementById("error").innerText = "入力内容が間違っています";
       return;
     }
   }
