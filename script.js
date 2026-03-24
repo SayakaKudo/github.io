@@ -20,14 +20,29 @@ const correct = {
 // 質問リスト
 const questions = [
   "紗華のことが好き？",
-  "紗華とずっと一緒にいると誓う？",
+  "紗華とずっと一緒にいることを誓う？",
   "結婚する？"
 ];
 
 let answers = [];
 let current = 0;
+let noBtn;
 
-// ログイン処理
+// 初期化
+window.addEventListener("DOMContentLoaded", () => {
+  noBtn = document.getElementById("noBtn");
+
+  resetNoPosition();
+
+  noBtn.addEventListener("mouseover", moveNo);
+
+  // クリック時の変な挙動防止
+  noBtn.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+  });
+});
+
+// ログイン
 function login() {
   const fields = ["by","bm","bd","bfamily","bname","gy","gm","gd","gfamily","gname"];
 
@@ -37,12 +52,12 @@ function login() {
 
     if (Array.isArray(answer)) {
       if (!answer.includes(input)) {
-        document.getElementById("error").innerText = "入力内容が間違っています";
+        document.getElementById("error").innerText = "入力が違います";
         return;
       }
     } else {
       if (input !== answer) {
-        document.getElementById("error").innerText = "入力内容が間違っています";
+        document.getElementById("error").innerText = "入力が違います";
         return;
       }
     }
@@ -56,9 +71,10 @@ function login() {
 // 質問表示
 function showQuestion() {
   document.getElementById("qText").innerText = questions[current];
+  resetNoPosition();
 }
 
-// 回答処理
+// 回答
 function answer(a) {
   answers.push({ q: questions[current], a });
   current++;
@@ -72,20 +88,42 @@ function answer(a) {
   }
 }
 
-// Noボタン逃げる（DOM読み込み後に設定）
-window.addEventListener("DOMContentLoaded", () => {
-  const noBtn = document.getElementById("noBtn");
+// Noボタン移動
+function moveNo() {
+  const range = 80;
 
-  noBtn.addEventListener("mouseover", () => {
-    noBtn.style.position = "absolute";
-    noBtn.style.top = Math.random() * 300 + "px";
-    noBtn.style.left = Math.random() * 300 + "px";
-  });
-});
+  const rect = noBtn.getBoundingClientRect();
+
+  let top = rect.top;
+  let left = rect.left;
+
+  const dx = (Math.random() - 0.5) * range;
+  const dy = (Math.random() - 0.5) * range;
+
+  let newTop = top + dy;
+  let newLeft = left + dx;
+
+  const margin = 10;
+  const maxTop = window.innerHeight - noBtn.offsetHeight - margin;
+  const maxLeft = window.innerWidth - noBtn.offsetWidth - margin;
+
+  newTop = Math.max(margin, Math.min(newTop, maxTop));
+  newLeft = Math.max(margin, Math.min(newLeft, maxLeft));
+
+  noBtn.style.position = "fixed";
+  noBtn.style.top = newTop + "px";
+  noBtn.style.left = newLeft + "px";
+}
+
+// 位置リセット
+function resetNoPosition() {
+  if (!noBtn) return;
+  noBtn.style.position = "static";
+}
 
 // メール送信
 function sendEmail() {
-  emailjs.send("service_iufbcty", "template_ueeov56", {
+  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
     message: JSON.stringify(answers, null, 2)
   });
 }
