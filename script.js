@@ -33,9 +33,18 @@ function login() {
 
   for (let f of fields) {
     const input = document.getElementById(f).value.trim();
-    if (input !== correct[f]) {
-      document.getElementById("error").innerText = "入力内容が間違っています";
-      return;
+    const answer = correct[f];
+
+    if (Array.isArray(answer)) {
+      if (!answer.includes(input)) {
+        document.getElementById("error").innerText = "入力が違います";
+        return;
+      }
+    } else {
+      if (input !== answer) {
+        document.getElementById("error").innerText = "入力が違います";
+        return;
+      }
     }
   }
 
