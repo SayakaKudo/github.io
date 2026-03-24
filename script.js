@@ -5,12 +5,10 @@
 
 // 正解データ
 const correct = {
-  by: "1996",
   bm: "4",
   bd: "13",
   bfamily: ["葛󠄀谷","葛谷"],
   bname: "雄斗",
-  gy: "1994",
   gm: "8",
   gd: "15",
   gfamily: "工藤",
