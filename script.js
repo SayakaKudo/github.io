@@ -47,7 +47,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 // ログイン
 function login() {
-  const fields = ["by","bm","bd","bfamily","bname","gy","gm","gd","gfamily","gname"];
+  const fields = ["bm","bd","bfamily","bname","gy","gm","gd","gfamily","gname"];
 
   for (let f of fields) {
     const input = document.getElementById(f).value.trim();
