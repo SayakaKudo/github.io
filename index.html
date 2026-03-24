@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>Secret Page</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secret Page</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
 
-<p class="label">あなたの生年月日を入力してください</p>
-<div class="row">
-<input id="by" placeholder="年">
-<input id="bm" placeholder="月">
-<input id="bd" placeholder="日">
-</div>
+  <!-- ログイン画面 -->
+  <div id="login" class="card">
 
-<p class="label">あなたの氏名を入力してください</p>
-<div class="row">
-<input id="bfamily" placeholder="氏">
-<input id="bname" placeholder="名">
-</div>
+    <p class="label">あなたの生年月日を入力してください</p>
+    <div class="row date">
+      <input id="by" placeholder="年">
+      <input id="bm" placeholder="月">
+      <input id="bd" placeholder="日">
+    </div>
 
-<p class="label">彼女の生年月日を入力してください</p>
-<div class="row">
-<input id="gy" placeholder="年">
-<input id="gm" placeholder="月">
-<input id="gd" placeholder="日">
-</div>
+    <p class="label">あなたの氏名を入力してください</p>
+    <div class="row">
+      <input id="bfamily" placeholder="氏">
+      <input id="bname" placeholder="名">
+    </div>
 
-<p class="label">彼女の氏名を入力してください</p>
-<div class="row">
-<input id="gfamily" placeholder="氏">
-<input id="gname" placeholder="名">
-</div>
+    <p class="label">彼女の生年月日を入力してください</p>
+    <div class="row date">
+      <input id="gy" placeholder="年">
+      <input id="gm" placeholder="月">
+      <input id="gd" placeholder="日">
+    </div>
 
-<button class="main-btn" onclick="login()">ログイン</button>
-<p id="error"></p>
-</div>
+    <p class="label">彼女の氏名を入力してください</p>
+    <div class="row">
+      <input id="gfamily" placeholder="氏">
+      <input id="gname" placeholder="名">
+    </div>
 
-<!-- 質問画面 -->
-<div id="question" class="card hidden">
-<h2 id="qText"></h2>
-<div class="btn-group">
-<button class="yes" onclick="answer('yes')">Yes</button>
-<button id="noBtn" class="no">No</button>
-</div>
-</div>
+    <button class="main-btn" onclick="login()">ログイン</button>
+    <p id="error"></p>
+  </div>
 
-<!-- 完了画面 -->
-<div id="done" class="card hidden">
-<h2>ありがとう</h2>
-<p>回答を受け取りました。</p>
-<button class="main-btn" onclick="location.reload()">ホームへ戻る</button>
-</div>
+  <!-- 質問画面 -->
+  <div id="question" class="card hidden">
+    <h2 id="qText"></h2>
+    <div class="btn-group">
+      <button class="yes" onclick="answer('yes')">Yes</button>
+      <button id="noBtn" class="no">No</button>
+    </div>
+  </div>
+
+  <!-- 完了画面 -->
+  <div id="done" class="card hidden">
+    <h2>ありがとう</h2>
+    <p>回答を受け取りました。</p>
+    <button class="main-btn" onclick="location.reload()">ホームへ戻る</button>
+  </div>
 
 </div>
 
