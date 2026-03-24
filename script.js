@@ -21,7 +21,7 @@ const correct = {
 const questions = [
   "紗華のことが好き？",
   "紗華とずっと一緒にいることを誓う？",
-  "結婚する？"
+  "紗華と結婚する？"
 ];
 
 let answers = [];
