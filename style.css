@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: "Helvetica Neue", sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #ff9ecf, #8fd3f4);
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -16,10 +16,11 @@ body {
 }
 
 .card {
-  background: white;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
   padding: 24px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   text-align: center;
 }
 
@@ -58,16 +59,17 @@ body {
 input {
   width: 100%;
   padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.1);
   font-size: 16px;
   box-sizing: border-box;
-  transition: border 0.2s, box-shadow 0.2s;
+  background: rgba(255,255,255,0.8);
+  transition: all 0.2s ease;
 }
 
 input:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 2px rgba(102,126,234,0.2);
+  border-color: #ff9ecf;
+  box-shadow: 0 0 0 3px rgba(255,158,207,0.25);
   outline: none;
 }
 
@@ -76,21 +78,22 @@ input:focus {
   width: 100%;
   padding: 14px;
   border: none;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #667eea, #5a67d8);
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ff9ecf, #8fd3f4);
   color: white;
   font-size: 16px;
   cursor: pointer;
+  font-weight: 600;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .main-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .btn-group {
-  margin-top: 20px;
+  margin-top: 24px;
   display: flex;
   justify-content: center;
   gap: 12px;
@@ -99,37 +102,38 @@ input:focus {
 button {
   padding: 12px 20px;
   border: none;
-  border-radius: 999px; /* pill型 */
+  border-radius: 999px;
   cursor: pointer;
   font-size: 15px;
   width: 120px;
   font-weight: 500;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: all 0.2s ease;
 }
 
-/* Yesボタン（今風グリーン） */
+/* Yesボタン（ピンク→水色グラデ） */
 button.yes {
-  background: linear-gradient(135deg, #34d399, #10b981);
+  background: linear-gradient(135deg, #ff9ecf, #8fd3f4);
   color: white;
 }
 
 button.yes:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(16,185,129,0.3);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 18px rgba(255,158,207,0.4);
 }
 
-/* Noボタン（落ち着いたグレー） */
+/* Noボタン（淡いガラス風） */
 button.no {
-  background: #e5e7eb;
-  color: #374151;
+  background: rgba(255,255,255,0.7);
+  color: #666;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.5);
   position: absolute;
 }
 
 button.no:hover {
-  background: #d1d5db;
+  background: rgba(255,255,255,0.9);
 }
 
-/* 押したときの違和感除去 */
 button:active {
   transform: none;
   box-shadow: none;
@@ -140,7 +144,7 @@ button:focus {
 }
 
 #error {
-  color: #ef4444;
+  color: #ff6b9a;
   margin-top: 10px;
 }
 
