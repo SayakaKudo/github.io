@@ -40,12 +40,30 @@ body {
   margin-top: 8px;
 }
 
-input {
+/* はみ出し防止（重要） */
+.row input {
   flex: 1;
+  min-width: 0;
+}
+
+/* 年月日専用（横並び維持） */
+.date {
+  display: flex;
+  gap: 8px;
+}
+
+.date input {
+  flex: 1;
+  min-width: 0;
+}
+
+input {
+  width: 100%;
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #ddd;
   font-size: 16px;
+  box-sizing: border-box; /* ←これも重要 */
 }
 
 .main-btn {
@@ -97,12 +115,14 @@ button {
     padding: 16px;
   }
 
+  /* 通常は縦並び */
   .row {
     flex-direction: column;
   }
 
-  input {
-    width: 100%;
+  /* 年月日だけ横維持 */
+  .date {
+    flex-direction: row;
   }
 
   .btn-group {
