@@ -13,13 +13,12 @@ body {
   max-width: 420px;
   padding: 16px;
   box-sizing: border-box;
-  margin: 0 auto;
 }
 
 .card {
   background: rgba(255,255,255,0.9);
   backdrop-filter: blur(8px);
-  padding: 20px;
+  padding: 24px 20px;
   border-radius: 18px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   text-align: center;
@@ -36,32 +35,30 @@ body {
   color: #555;
 }
 
-/* 入力グループ */
+/* 入力 */
 .row {
   display: flex;
   gap: 10px;
+  width: 100%;
 }
 
-/* ★ここが重要（2列専用） */
 .date input {
   width: 50%;
 }
 
-/* 名前欄 */
 .row input {
   flex: 1;
 }
 
-/* 入力欄 */
 input {
   padding: 12px;
   border-radius: 10px;
   border: 1px solid #ddd;
-  box-sizing: border-box;
   width: 100%;
+  box-sizing: border-box;
 }
 
-/* メインボタン */
+/* ボタン */
 .main-btn {
   margin-top: 18px;
   width: 100%;
@@ -70,26 +67,25 @@ input {
   border-radius: 12px;
   background: linear-gradient(135deg, #ff9ecf, #8fd3f4);
   color: white;
-  cursor: pointer;
 }
 
-/* 質問 */
+/* ★質問文（ここが重要） */
 #qText {
-  text-align: center;
-  margin-bottom: 20px;
-  align-items: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-bottom: 22px;
+  line-height: 1.5;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  padding: 0 8px;
 }
 
 /* ボタン配置 */
 .btn-group {
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 14px;
 }
 
-/* ボタン共通 */
+/* ボタン */
 button {
   width: 120px;
   padding: 12px;
@@ -98,13 +94,11 @@ button {
   cursor: pointer;
 }
 
-/* Yes */
 .yes {
   background: linear-gradient(135deg, #ff9ecf, #8fd3f4);
   color: white;
 }
 
-/* No */
 .no {
   background: #eee;
   color: #666;
@@ -116,19 +110,25 @@ button {
   color: #ff6b9a;
 }
 
-/* スマホ最適化 */
+/* スマホ */
 @media (max-width: 480px) {
   .card {
-    padding: 16px;
+    padding: 20px 16px;
+  }
+
+  #qText {
+    margin-bottom: 18px;
+    padding: 0 4px;
   }
 
   .btn-group {
     flex-direction: column;
     align-items: center;
+    gap: 10px;
   }
 
   button {
     width: 100%;
-    max-width: 220px;
+    max-width: 240px;
   }
 }
