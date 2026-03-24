@@ -106,14 +106,13 @@ function handleNoClick() {
 
 // メール送信
 function sendEmail() {
-  let formatted = "";
+  let text = "";
 
-  answers.forEach((item, index) => {
-    formatted += `Q${index + 1}: ${item.q}\n`;
-    formatted += `回答: ${item.a === "yes" ? "Yes" : "No"}\n\n`;
+  answers.forEach((v,i)=>{
+    text += `Q${i+1}: ${v.q}\n回答: ${v.a}\n\n`;
   });
 
-  emailjs.send("service_iufbcty", "template_ueeov56", {
-    message: formatted
+  return emailjs.send("service_iufbcty", "template_ueeov56", {
+    message: text
   });
 }
