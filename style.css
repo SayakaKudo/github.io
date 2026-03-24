@@ -40,13 +40,11 @@ body {
   margin-top: 8px;
 }
 
-/* はみ出し防止（重要） */
 .row input {
   flex: 1;
   min-width: 0;
 }
 
-/* 年月日専用（横並び維持） */
 .date {
   display: flex;
   gap: 8px;
@@ -63,7 +61,7 @@ input {
   border-radius: 8px;
   border: 1px solid #ddd;
   font-size: 16px;
-  box-sizing: border-box; /* ←これも重要 */
+  box-sizing: border-box;
 }
 
 .main-btn {
@@ -85,6 +83,15 @@ input {
   gap: 12px;
 }
 
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 120px; /* サイズ固定 */
+}
+
 button.yes {
   background: #4CAF50;
   color: white;
@@ -93,15 +100,17 @@ button.yes {
 button.no {
   background: #f44336;
   color: white;
-  position: relative;
+  position: absolute; /* ←固定してサイズ変化防止 */
 }
 
-button {
-  padding: 12px 20px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 16px;
+/* 押したときの変化を無効化 */
+button:active {
+  transform: none;
+  opacity: 1;
+}
+
+button:focus {
+  outline: none;
 }
 
 #error {
@@ -109,27 +118,26 @@ button {
   margin-top: 10px;
 }
 
-/* スマホ対応 */
 @media (max-width: 480px) {
   .card {
     padding: 16px;
   }
 
-  /* 通常は縦並び */
   .row {
     flex-direction: column;
   }
 
-  /* 年月日だけ横維持 */
   .date {
     flex-direction: row;
   }
 
   .btn-group {
     flex-direction: column;
+    align-items: center;
   }
 
   button {
     width: 100%;
+    max-width: 200px;
   }
 }
