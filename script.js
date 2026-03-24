@@ -37,12 +37,12 @@ function login() {
 
     if (Array.isArray(answer)) {
       if (!answer.includes(input)) {
-        document.getElementById("error").innerText = "入力が違います";
+        document.getElementById("error").innerText = "入力内容が間違っています";
         return;
       }
     } else {
       if (input !== answer) {
-        document.getElementById("error").innerText = "入力が違います";
+        document.getElementById("error").innerText = "入力内容が間違っています";
         return;
       }
     }
