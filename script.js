@@ -66,10 +66,13 @@ function login() {
       if (input !== answer) return error();
     }
   }
-
   document.getElementById("login").classList.add("hidden");
   document.getElementById("question").classList.remove("hidden");
   showQuestion();
+}
+
+function closeModal() {
+  document.getElementById("modal").classList.add("hidden");
 }
 
 // 質問表示
@@ -91,9 +94,14 @@ function answer(a) {
   }
 }
 
+function showModal(text) {
+  document.getElementById("modalText").innerText = text;
+  document.getElementById("modal").classList.remove("hidden");
+}
+
 // Noクリック（全質問共通：確認ダイアログ）
 function handleNoClick() {
-  alert(noMessages[current]);
+  showModal(noMessages[current]);
 }
 
 // メール送信
