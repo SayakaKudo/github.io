@@ -97,6 +97,7 @@ input:focus {
   display: flex;
   justify-content: center;
   gap: 12px;
+  position: relative; /* ←重要（基準） */
 }
 
 button {
@@ -110,10 +111,12 @@ button {
   transition: all 0.2s ease;
 }
 
-/* Yesボタン（ピンク→水色グラデ） */
+/* Yes（前面に出す） */
 button.yes {
   background: linear-gradient(135deg, #ff9ecf, #8fd3f4);
   color: white;
+  position: relative;
+  z-index: 2;
 }
 
 button.yes:hover {
@@ -121,13 +124,14 @@ button.yes:hover {
   box-shadow: 0 6px 18px rgba(255,158,207,0.4);
 }
 
-/* Noボタン（淡いガラス風） */
+/* No（背面＋ガラス風） */
 button.no {
   background: rgba(255,255,255,0.7);
   color: #666;
   backdrop-filter: blur(6px);
   border: 1px solid rgba(255,255,255,0.5);
   position: absolute;
+  z-index: 1;
 }
 
 button.no:hover {
