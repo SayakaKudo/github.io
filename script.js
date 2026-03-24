@@ -5,19 +5,19 @@
 
 // 正解データ
 const correct = {
-  by: "1995",
-  bm: "1",
-  bd: "1",
-  bfamily: "山田",
-  bname: "太郎",
-  gfamily: "佐藤",
-  gname: "花子"
+  by: "1996",
+  bm: "4",
+  bd: "13",
+  bfamily: "葛󠄀谷",
+  bname: "雄斗",
+  gfamily: "工藤",
+  gname: "紗華"
 };
 
 // 質問
 const questions = [
-  "私のこと好き？",
-  "ずっと一緒にいたい？",
+  "紗華のことが好き？",
+  "ずっと一緒にいると誓う？",
   "結婚する？"
 ];
 
