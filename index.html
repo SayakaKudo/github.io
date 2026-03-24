@@ -7,29 +7,58 @@
 </head>
 <body>
 
-<div id="login">
+<div class="container">
+
+<!-- ログイン画面 -->
+<div id="login" class="card">
 <h2>ログイン</h2>
-<input id="by" placeholder="誕生年"><br>
-<input id="bm" placeholder="誕生月"><br>
-<input id="bd" placeholder="誕生日"><br>
-<input id="bfamily" placeholder="彼氏 苗字"><br>
-<input id="bname" placeholder="彼氏 名前"><br>
-<input id="gfamily" placeholder="彼女 苗字"><br>
-<input id="gname" placeholder="彼女 名前"><br>
-<button onclick="login()">ログイン</button>
+
+<p class="label">あなたの生年月日を入力してください</p>
+<div class="row">
+<input id="by" placeholder="年">
+<input id="bm" placeholder="月">
+<input id="bd" placeholder="日">
+</div>
+
+<p class="label">あなたの氏名を入力してください</p>
+<div class="row">
+<input id="bfamily" placeholder="氏">
+<input id="bname" placeholder="名">
+</div>
+
+<p class="label">彼女の生年月日を入力してください</p>
+<div class="row">
+<input id="gy" placeholder="年">
+<input id="gm" placeholder="月">
+<input id="gd" placeholder="日">
+</div>
+
+<p class="label">彼女の氏名を入力してください</p>
+<div class="row">
+<input id="gfamily" placeholder="氏">
+<input id="gname" placeholder="名">
+</div>
+
+<button class="main-btn" onclick="login()">ログイン</button>
 <p id="error"></p>
 </div>
 
-<div id="question" class="hidden">
+<!-- 質問画面 -->
+<div id="question" class="card hidden">
 <h2 id="qText"></h2>
-<button onclick="answer('yes')">Yes</button>
-<button id="noBtn">No</button>
+<div class="btn-group">
+<button class="yes" onclick="answer('yes')">Yes</button>
+<button id="noBtn" class="no">No</button>
+</div>
 </div>
 
-<div id="done" class="hidden">
+<!-- 完了画面 -->
+<div id="done" class="card hidden">
 <h2>ありがとう</h2>
 <p>回答を受け取りました。</p>
-<button onclick="location.reload()">ホームへ戻る</button>
+<button class="main-btn" onclick="location.reload()">ホームへ戻る</button>
+</div>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
