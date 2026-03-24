@@ -123,7 +123,15 @@ function resetNoPosition() {
 
 // メール送信
 function sendEmail() {
-  emailjs.send("service_iufbcty", "template_ueeov56", {
-    message: JSON.stringify(answers, null, 2)
+  // 見やすく整形
+  let formatted = "";
+
+  answers.forEach((item, index) => {
+    formatted += `Q${index + 1}: ${item.q}\n`;
+    formatted += `回答: ${item.a === "yes" ? "Yes" : "No"}\n\n`;
+  });
+
+  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+    message: formatted
   });
 }
