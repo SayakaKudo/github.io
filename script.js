@@ -1,6 +1,6 @@
 // EmailJS初期化
 (function(){
-  emailjs.init("YOUR_PUBLIC_KEY");
+  emailjs.init("JGZt53LQJjdb0E3KF");
 })();
 
 // 正解データ
@@ -66,7 +66,7 @@ noBtn.addEventListener("mouseover", () => {
 
 // メール送信
 function sendEmail() {
-  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+  emailjs.send("service_iufbcty", "template_ueeov56", {
     message: JSON.stringify(answers)
   });
 }
