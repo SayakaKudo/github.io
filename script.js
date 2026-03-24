@@ -50,19 +50,20 @@ function login() {
   const fields = ["bm","bd","bfamily","bname","gm","gd","gfamily","gname"];
 
   for (let f of fields) {
-    const input = document.getElementById(f).value.trim();
+    const el = document.getElementById(f);
+
+    if (!el) {
+      console.error("IDが存在しない:", f);
+      return;
+    }
+
+    const input = el.value.trim();
     const answer = correct[f];
 
     if (Array.isArray(answer)) {
-      if (!answer.includes(input)) {
-        document.getElementById("error").innerText = "入力内容が間違っています";
-        return;
-      }
+      if (!answer.includes(input)) return error();
     } else {
-      if (input !== answer) {
-        document.getElementById("error").innerText = "入力内容が間違っています";
-        return;
-      }
+      if (input !== answer) return error();
     }
   }
 
