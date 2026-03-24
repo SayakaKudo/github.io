@@ -6,6 +6,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 16px;
+}
+
+input {
+  font-size: 16px;
 }
 
 .container {
@@ -70,6 +75,7 @@ button {
   border-radius: 999px;
   border: none;
   cursor: pointer;
+  font-size: 16px;
 }
 
 /* Yes */
